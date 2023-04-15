@@ -6,8 +6,8 @@
     <title>ブラウザキックテスト</title>
     <script>
         function openInDefaultBrowserAndNavigate() {
-            var newTabUrl = 'https://www.example.com';
-            var currentTabUrl = 'https://www.new-page.com';
+            var newTabUrl = './location_after.html';
+            var currentTabUrl = './location_after.html';
 
             // 別のブラウザでリンクを開くためのアンカータグを作成
             var anchor = document.createElement('a');
@@ -20,7 +20,7 @@
             clickEvent.initEvent('click', true, true);
             anchor.dispatchEvent(clickEvent);
 
-            // 元のタブで別のURLに遷移
+            // 元のタブでも別のURLに遷移
             window.location.href = currentTabUrl;
         }
     </script>
