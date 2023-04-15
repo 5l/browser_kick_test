@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ブラウザキックテスト</title>
+    <script>
+        function openInDefaultBrowserAndNavigate() {
+            var newTabUrl = 'https://www.example.com';
+            var currentTabUrl = 'https://www.new-page.com';
+
+            // 別のブラウザでリンクを開くためのアンカータグを作成
+            var anchor = document.createElement('a');
+            anchor.href = newTabUrl;
+            anchor.target = '_blank';
+            anchor.rel = 'noopener noreferrer';
+
+            // クリックイベントをシミュレート
+            var clickEvent = document.createEvent('MouseEvents');
+            clickEvent.initEvent('click', true, true);
+            anchor.dispatchEvent(clickEvent);
+
+            // 元のタブで別のURLに遷移
+            window.location.href = currentTabUrl;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="openInDefaultBrowserAndNavigate()">このブラウザと規定ブラウザの両方で遷移</button>
+</body>
+</html>
